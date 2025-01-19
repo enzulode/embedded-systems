@@ -56,10 +56,20 @@ public class CardServiceImpl implements CardService {
   @Transactional(noRollbackFor = CardCheckFailureException.class)
   public void checkByCardId(UUID cardId) {
     var card = cardRepository.findByCardId(cardId);
-    if (card.isPresent()) return;
+    if (card.isEmpty()) {
+      var deniedEvent = new Event(cardId, "UNKNOWN", EventType.DENIED);
+      eventRepository.save(deniedEvent);
+      throw new CardCheckFailureException("Card was denied");
+    }
 
-    var deniedEvent = new Event(cardId, "UNKNOWN", EventType.DENIED);
-    eventRepository.save(deniedEvent);
-    throw new CardCheckFailureException("Card was denied");
+    var latestEvent = eventRepository.findLatestEventFor(cardId);
+    if (latestEvent.isPresent() && latestEvent.get().getType() == EventType.BEGIN) {
+      var endEvent = new Event(cardId, card.get().getUsername(), EventType.END);
+      eventRepository.save(endEvent);
+      return;
+    }
+
+    var beginEvent = new Event(cardId, card.get().getUsername(), EventType.BEGIN);
+    eventRepository.save(beginEvent);
   }
 }
