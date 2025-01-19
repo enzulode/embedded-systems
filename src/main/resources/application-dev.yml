@@ -1,4 +1,5 @@
 server:
+  address: 0.0.0.0
   port: 8888
 
 spring:
@@ -8,3 +9,17 @@ spring:
   threads:
     virtual:
       enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.show_sql: true
+    generate-ddl: true
+    open-in-view: false
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/cards
+    username: dev
+    password: dev
