@@ -23,3 +23,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/cards
     username: dev
     password: dev
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/realms/devrealm/protocol/openid-connect/certs
