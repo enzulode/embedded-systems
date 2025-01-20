@@ -23,7 +23,9 @@ public class SecurityConfig {
     http
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(
-            httpRequests -> httpRequests.anyRequest().authenticated()
+            httpRequests -> httpRequests
+                .requestMatchers("/api/v1/card/check").permitAll()
+                .anyRequest().authenticated()
         )
         .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(STATELESS))
         .oauth2ResourceServer(
