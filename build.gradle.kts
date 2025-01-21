@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
+
 plugins {
     java
     id("org.springframework.boot") version "3.4.1"
@@ -5,7 +7,7 @@ plugins {
 }
 
 group = "com.enzulode"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0"
 
 java {
     toolchain {
@@ -44,4 +46,8 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.named("bootBuildImage", BootBuildImage::class) {
+    imageName = "docker.io/library/${rootProject.name}:v${project.version}"
 }
