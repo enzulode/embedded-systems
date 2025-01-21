@@ -12,16 +12,14 @@ i18n
                         tag: "Users and Cards",
                         name: "Name",
                         delete: "Delete",
-                        empty: "There are no registered cards",
-                        cardId: "CardId"
+                        empty: "There are no registered cards"
                     },
                     eventsTable: {
                         tag: "Events",
                         name: "Name",
                         event: "Event",
                         dt: "DT",
-                        empty: "There are no detected events",
-                        cardId: "CardId"
+                        empty: "There are no detected events"
                     },
                     controls: {
                         tag: "Controls"
@@ -40,8 +38,6 @@ i18n
                         period: " Spring/winter 2024-2025 ITMO, Embedded systems"
                     },
                     event: {
-                        // entered: "Entered",
-                        // left: "Left"
                         begin: "BEGIN",
                         end: "END",
                         denied: "DENIED"
@@ -60,16 +56,14 @@ i18n
                         tag: "Пользователи и карты",
                         name: "Имя",
                         delete: "Удалить",
-                        empty: "Нет зарегистрированных карт",
-                        cardId: "Id карты"
+                        empty: "Нет зарегистрированных карт"
                     },
                     eventsTable: {
                         tag: "События",
                         name: "Имя",
                         event: "Событие",
                         dt: "ДВ",
-                        empty: "Нет зарегистрированных событий",
-                        cardId: "Id карты"
+                        empty: "Нет зарегистрированных событий"
                     },
                     controls: {
                         tag: "Управление"
@@ -91,8 +85,6 @@ i18n
                         begin: "НАЧАЛО",
                         end: "ОКОНЧАНИЕ",
                         denied: "ЗАПРЕЩЕН"
-                        // entered: "Вошел",
-                        // left: "Вышел"
                     },
                     app: {
                         notAuthenticated: "Вы не авторизиованы",
