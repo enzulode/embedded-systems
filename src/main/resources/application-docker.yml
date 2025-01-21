@@ -1,0 +1,31 @@
+server:
+  address: 0.0.0.0
+  port: 8888
+
+spring:
+  application:
+    name: embedded-backend
+
+  threads:
+    virtual:
+      enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.show_sql: true
+    generate-ddl: true
+    open-in-view: false
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${PG_URL}
+    username: ${PG_USERNAME}
+    password: ${PG_PASSWORD}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI}
