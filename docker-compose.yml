@@ -52,3 +52,28 @@ services:
       KEYCLOAK_DATABASE_PASSWORD: dev
     ports:
       - '9000:9000'
+
+  backend:
+    image: embedded-backend:v1.0.0
+    depends_on:
+      cards-db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      JWK_SET_URI: http://keycloak-idp:9000/realms/devrealm/protocol/openid-connect/certs
+      PG_URL: jdbc:postgresql://cards-db:5432/cards
+      PG_USERNAME: dev
+      PG_PASSWORD: dev
+    ports:
+      - '8888:8888'
+
+  frontend:
+    depends_on:
+      - backend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - '8080:80'
