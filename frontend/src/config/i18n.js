@@ -12,14 +12,16 @@ i18n
                         tag: "Users and Cards",
                         name: "Name",
                         delete: "Delete",
-                        empty: "There are no registered cards"
+                        empty: "There are no registered cards",
+                        cardId: "Card ID"
                     },
                     eventsTable: {
                         tag: "Events",
                         name: "Name",
                         event: "Event",
                         dt: "DT",
-                        empty: "There are no detected events"
+                        empty: "There are no detected events",
+                        cardId: "Card ID"
                     },
                     controls: {
                         tag: "Controls"
@@ -46,6 +48,12 @@ i18n
                         notAuthenticated: "You are not authenticated",
                         login: "Sign in",
                         logout: "Sign out"
+                    },
+                    graphics: {
+                        hours: "Hours",
+                        tag: "Chart",
+                        id: "Card ID",
+                        submit: "Check stat"
                     }
                 }
             },
@@ -56,14 +64,16 @@ i18n
                         tag: "Пользователи и карты",
                         name: "Имя",
                         delete: "Удалить",
-                        empty: "Нет зарегистрированных карт"
+                        empty: "Нет зарегистрированных карт",
+                        cardId: "Индентификатор Карты"
                     },
                     eventsTable: {
                         tag: "События",
                         name: "Имя",
                         event: "Событие",
                         dt: "ДВ",
-                        empty: "Нет зарегистрированных событий"
+                        empty: "Нет зарегистрированных событий",
+                        cardId: "Индентификатор Карты"
                     },
                     controls: {
                         tag: "Управление"
@@ -90,6 +100,12 @@ i18n
                         notAuthenticated: "Вы не авторизиованы",
                         login: "Войти",
                         logout: "Выйти"
+                    },
+                    graphics: {
+                        hours: "Часы",
+                        tag: "График",
+                        id: "ID карты",
+                        submit: "Проверить"
                     }
                 }
             }
