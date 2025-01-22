@@ -49,6 +49,11 @@ public class CardServiceImpl implements CardService {
   @Override
   @Transactional
   public void deleteCardById(Long id) {
+    var lastEvent = eventRepository.findLatestEventFor(id);
+    if (lastEvent.isPresent() && lastEvent.get().getType() == EventType.BEGIN) {
+      var finalEvent = new Event(lastEvent.get().getCardId(), lastEvent.get().getUsername(), EventType.END);
+      eventRepository.save(finalEvent);
+    }
     cardRepository.deleteById(id);
   }
 

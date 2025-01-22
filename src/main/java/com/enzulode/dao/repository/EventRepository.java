@@ -14,4 +14,7 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 
   @Query(value = "SELECT e FROM Event e INNER JOIN Card c ON c.cardId = e.cardId WHERE e.type <> 'DENIED' AND e.cardId = :cardId ORDER BY e.at DESC LIMIT 1")
   Optional<Event> findLatestEventFor(@Param("cardId") UUID cardId);
+
+  @Query(value = "SELECT e FROM Event e INNER JOIN Card c ON c.cardId = e.cardId WHERE e.type <> 'DENIED' AND c.id = :id ORDER BY e.at DESC LIMIT 1")
+  Optional<Event> findLatestEventFor(@Param("id") Long id);
 }
